@@ -1,0 +1,17 @@
+name: Figure out the best label
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr_name:
+        description:  PR number for core, "repo/PR#" for deployment for other project
+        required: true
+        type: string
+        hint: "Hey, I'm a hint!"
+        placeholder: "placeholder here"
+
+jobs:
+  dummy:
+    steps:
+      - run: echo "Hello, world"
+        shell: bash
