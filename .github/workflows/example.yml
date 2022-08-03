@@ -5,9 +5,8 @@ on:
     inputs:
       pr_name:
         description: |
-          PR number for core, <br>
-          if you need staging app for another project,<br>
-          use "repo/PR#" (will notify in the "repo")
+          PR number for core, or "repo/PR#" if you need staging app
+          for another project (will notify in the "repo")
         required: true
         type: string
         hint: "Hey, I'm a hint!"
