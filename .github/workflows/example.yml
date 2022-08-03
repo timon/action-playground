@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       pr_name:
-        description: >
-          PR number for core,
-          use "repo/PR#" it the app is deployed for other project
-          (will notify in the `repo`)
+        description: |
+          PR number for core, <br>
+          if you need staging app for another project,<br>
+          use "repo/PR#" (will notify in the "repo")
         required: true
         type: string
         hint: "Hey, I'm a hint!"
