@@ -13,6 +13,7 @@ jobs:
         run: |
           git config user.name 'Github Bot'
           git config user.email '27407+timon@users.noreply.github.com'
+          git config -l
         shell: bash
       - name: Perform a release
         run: |
@@ -20,5 +21,5 @@ jobs:
           release_tag=v$(date +%F.%H%M)
           git add releases && git commit -m "Release ${release_tag}"
           git tag "${release_tag}"
-          git push --tags
+          git push --tags origin master
 
