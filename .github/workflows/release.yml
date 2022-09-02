@@ -19,10 +19,10 @@ jobs:
           [ "$invoker_name" ] || invoker_name='Github Bot'
           git config user.name "${invoker_name}"
           git config user.email '27407+timon@users.noreply.github.com'
-          git config http.https://github.com/.extraheader "AUTHORIZATION: basic ${GH_ACCESS_TOKEN}"
+          git config http.https://github.com/.extraheader "AUTHORIZATION: basic ${GH_TOKEN}"
         shell: bash
         env:
-          GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
       - name: Dump various info
         run: |
           git config -l
