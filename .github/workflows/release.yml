@@ -1,0 +1,23 @@
+name: Dummy release
+on:
+  workflow_dispatch: {}
+
+jobs:
+  release:
+    name: "Simulate a release"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Configure git commiter info
+        run: |
+          git config user.name='Github Bot' user.email='27407+timon@users.noreply.github.com'
+        shell: bash
+      - name: Perform a release
+        run: |
+          echo "Release: $(date +'%F %T %Z')" >> releases
+          release_tag=v$(date +%F.%H%M)
+          git add releases && git commit -m "Release ${release_tag}"
+          git tag "${release_tag}"
+          git push --tags
+

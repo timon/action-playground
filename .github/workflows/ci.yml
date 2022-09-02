@@ -1,0 +1,20 @@
+name: Dummy CI
+
+on:
+  pull_request:
+    types: [ synchronize, opened, reopened ]
+  push:
+    branches: [ main ]
+
+jobs:
+  ci:
+    name: "Make a dummy check"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run tests
+        run: |
+          true && echo "Test passed"
+        shell: bash
+
