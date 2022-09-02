@@ -13,8 +13,16 @@ jobs:
         run: |
           git config user.name 'Github Bot'
           git config user.email '27407+timon@users.noreply.github.com'
-          git config -l
+          git config http.https://github.com/.extraheader "AUTHORIZATION: basic ${GH_ACCESS_TOKEN}"
         shell: bash
+        env:
+          GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+      - name: Dump various info
+        run: |
+          git config -l
+          echo ""
+          echo "Github context"
+          echo '${{ toJSON(github) }}' | jq .
       - name: Perform a release
         run: |
           echo "Release: $(date +'%F %T %Z')" >> releases
