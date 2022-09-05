@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          gh pr comment ${{ github.event.pull_request.number }} --body "What happened: ${{ github.event.action }}"
+          gh pr comment ${{ github.event.pull_request.number }} \
+            -R "${{ github.repository }}" \
+            -b "What happened: ${{ github.event.action }}"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
