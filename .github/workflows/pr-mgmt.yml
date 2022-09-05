@@ -1,0 +1,11 @@
+name: "Evaluate PR lifecycle"
+on:
+  pull_request:
+    types: [opened, closed]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          gh pr comment --body "What happened: ${{ github.event.action }}"
