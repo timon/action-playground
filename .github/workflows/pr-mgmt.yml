@@ -1,7 +1,7 @@
 name: "Evaluate PR lifecycle"
 on:
   pull_request:
-    types: [opened, closed]
+    types: [opened, synchronize, closed, reopened]
 
 jobs:
   comment:
